@@ -7,7 +7,23 @@ POST http://localhost:8080/videos
 Content-Type: application/json
 
 {
-  "title": "Video 01",
+  "title": "Video 03",
+  "description": "Meu segundo video",
+  "duration": 180
+}
+
+###
+
+PUT http://localhost:8080/videos/8a9ff530-4691-45b6-b03e-0e51df1d46c4
+Content-Type: application/json
+
+{
+  "title": "Videos 3",
   "description": "Meu primeiro video",
   "duration": 180
 }
+
+###
+
+DELETE http://localhost:8080/videos/8a9ff530-4691-45b6-b03e-0e51df1d46c4
+Content-Type: application/json

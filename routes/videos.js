@@ -23,4 +23,26 @@ export async function videosRoutes(server){
     replay.status(204).send()
   })
 
+  server.put('/videos/:id', async (request, replay) => {
+    const id = request.params.id
+    const {title, description, duration} = request.body
+    console.log(title)
+    console.log(id)
+
+      await database.update(id,{
+      title,
+      description,
+      duration
+    })
+
+    replay.status(204).send()
+    
+  })
+
+  server.delete('/videos/:id', async (request, replay) => {
+    const id = request.params.id
+
+    await database.delete(id)
+  })
+
 }
