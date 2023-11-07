@@ -4,9 +4,11 @@ export async function videosRoutes(server){
 
   const database = new DatabasePostgres()
 
-  server.get('/videos', async () => {
+  server.get('/videos', async (request) => {
 
-    const videos = await database.list()
+    const search = request.query.search
+
+    const videos = await database.list(search)
     
     return videos
   })

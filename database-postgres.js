@@ -4,9 +4,10 @@ import { sql } from "./db.js";
 
 export class DatabasePostgres{
 
-  async list(){
-    const videos = await sql`SELECT * FROM videos`
+  async list(search = ''){
 
+    const videos = await sql`SELECT * FROM videos where title ilike ${"%" + search + "%"}`
+    
     return videos
   }
 
